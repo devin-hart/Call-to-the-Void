@@ -1,54 +1,37 @@
+// Query Selectors
 const sineSlider = document.querySelector('.sine-slider');
-const sineVolSlider = document.querySelector('.sine-vol-slider');
-var x = 0;
-const sineVol = new Tone.Volume(x);
-// const squareVol = new Tone.Volume(0);
-
-const squareSlider = document.querySelector('.square-slider');
-
-const sawtoothSlider = document.querySelector('.sawtooth-slider');
+const sineVol = document.querySelector('.sine-vol-slider');
 
 const triangleSlider = document.querySelector('.triangle-slider');
+const triangleVol = document.querySelector('.sine-vol-slider');
 
-const test = document.querySelector('.test');
+const sawtoothSlider = document.querySelector('.sawtooth-slider');
+const sawtoothVol = document.querySelector('.sine-vol-slider');
 
-const sineSynth = new Tone.Synth({
-  "oscillator" :
-  { "type": "sine" }}).toMaster();
+const pulseSlider = document.querySelector('.pulse-slider');
+const pulseVol = document.querySelector('.pulse-vol-slider');
 
-sineSynth.chain(sineVol, Tone.Master);
-const squareSynth = new Tone.Synth({
-  "oscillator" :
-  { "type": "square" }}).toMaster();
-  // squareSynth.chain(squareVol, Tone.Master);
-
-const sawtoothSynth = new Tone.Synth({
-  "oscillator" :
-  { "type": "sawtooth" }}).toMaster();
-
-const triangleSynth = new Tone.Synth({
-  "oscillator" :
-  { "type": "triangle" }}).toMaster();
-
-const testSynth = new Tone.DuoSynth( { "voice0" :
-  { "oscillator" : { "type" : "triangle" } } },
-  { "voice1" :
-  { "oscillator" : { "type" : "sine" } } } ).toMaster();
-
-sineSlider.addEventListener('input', () => { console.log(sineSlider.value); });
-sineSlider.addEventListener('input', () => { sineSynth.triggerAttackRelease(sineSlider.value, "3600"); });
-
-sineVolSlider.addEventListener('input', () => { console.log(sineVolSlider.value); });
-sineVolSlider.addEventListener('input', () => { x = sineVolSlider.value; });
+// Oscillators
+const sineOsc = new Tone.Oscillator({ type : "sine",
+                                      frequency : sineSlider.value ,
+                                      volume: sineVol.value,
+                                      detune : 0 ,
+                                      phase : 0 ,
+                                      partials : []
+}).toMaster().start();
 
 
-squareSlider.addEventListener('input', () => { console.log(squareSlider.value); });
-squareSlider.addEventListener('input', () => { squareSynth.triggerAttackRelease(squareSlider.value, "3600"); });
+const pulseOsc = new Tone.PWMOscillator({ frequency : pulseSlider.value,
+                                          volume: pulseVol.value,
+                                          detune : 0,
+                                          phase  : 0,
+                                          modulationFrequency : 0.4}).toMaster().start();
 
-sawtoothSlider.addEventListener('input', () => { console.log(sawtoothSlider.value); });
-sawtoothSlider.addEventListener('input', () => { sawtoothSynth.triggerAttackRelease(sawtoothSlider.value, "3600"); });
+// Event Listeners
+sineSlider.addEventListener('input', () => { console.log("Sine frequency " + sineOsc.frequency.value); });
+sineSlider.addEventListener('input', () => { sineOsc.frequency.value = sineSlider.value; });
+sineVol.addEventListener('input', () => { sineOsc.volume.value = sineVol.value });
 
-triangleSlider.addEventListener('input', () => { console.log(triangleSlider.value); });
-triangleSlider.addEventListener('input', () => { triangleSynth.triggerAttackRelease(triangleSlider.value, "3600"); });
-
-test.addEventListener('click', () => { testSynth.triggerAttackRelease("D2", "3600"); });
+pulseSlider.addEventListener('input', () => { console.log("Pulse frequency " + pulseOsc.frequency.value); });
+pulseSlider.addEventListener('input', () => { pulseOsc.frequency.value = pulseSlider.value; });
+pulseVol.addEventListener('input', () => { pulseOsc.volume.value = pulseVol.value });
