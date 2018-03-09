@@ -1,0 +1,11 @@
+.sine-slider, .square-slider, .triangle-slider, .sawtooth-slider {
+  -webkit-appearance: slider-vertical;  /* Override default CSS styles */
+    appearance: slider-vertical;
+    width: 25px; /* Full-width */
+    height: 25%; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+}
