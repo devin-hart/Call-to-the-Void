@@ -26,6 +26,13 @@ const triangleOsc = new Tone.Oscillator({ type : "triangle",
                                           phase : 0 ,
                                           partials : []}).toMaster().start();
 
+const sawtoothOsc = new Tone.Oscillator({ type : "sawtooth",
+                                          frequency : sawtoothSlider.value ,
+                                          volume: sawtoothVol.value,
+                                          detune : 0 ,
+                                          phase : 0 ,
+                                          partials : []}).toMaster().start();
+
 
 const pulseOsc = new Tone.PWMOscillator({ frequency : pulseSlider.value,
                                           volume: pulseVol.value,
@@ -41,6 +48,10 @@ sineVol.addEventListener('input', () => { sineOsc.volume.value = sineVol.value }
 triangleSlider.addEventListener('input', () => { console.log("Triangle frequency " + triangleOsc.frequency.value); });
 triangleSlider.addEventListener('input', () => { triangleOsc.frequency.value = triangleSlider.value; });
 triangleVol.addEventListener('input', () => { triangleOsc.volume.value = triangleVol.value });
+
+sawtoothSlider.addEventListener('input', () => { console.log("Sawtooth frequency " + sawtoothOsc.frequency.value); });
+sawtoothSlider.addEventListener('input', () => { sawtoothOsc.frequency.value = sawtoothSlider.value; });
+sawtoothVol.addEventListener('input', () => { sawtoothOsc.volume.value = sawtoothVol.value });
 
 pulseSlider.addEventListener('input', () => { console.log("Pulse frequency " + pulseOsc.frequency.value); });
 pulseSlider.addEventListener('input', () => { pulseOsc.frequency.value = pulseSlider.value; });
