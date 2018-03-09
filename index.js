@@ -10,35 +10,36 @@ const sawtoothVol = document.querySelector('.sawtooth-vol-slider');
 
 const pulseSlider = document.querySelector('.pulse-slider');
 const pulseVol = document.querySelector('.pulse-vol-slider');
+const pwmSlider = document.querySelector('.pwm-slider')
 
 // ***Oscillators***
 const sineOsc = new Tone.Oscillator({ type : "sine",
-                                      frequency : sineSlider.value,
-                                      volume: sineVol.value,
+                                      frequency : 0,
+                                      volume: -64,
                                       detune : 0,
                                       phase : 0,
                                       partials : []}).toMaster().start();
 
 const triangleOsc = new Tone.Oscillator({ type : "triangle",
-                                          frequency : triangleSlider.value,
+                                          frequency : 0,
                                           volume: triangleVol.value,
                                           detune : 0,
                                           phase : 0,
                                           partials : []}).toMaster().start();
 
 const sawtoothOsc = new Tone.Oscillator({ type : "sawtooth",
-                                          frequency : sawtoothSlider.value,
-                                          volume: sawtoothVol.value,
+                                          frequency : 0,
+                                          volume: -64,
                                           detune : 0,
                                           phase : 0,
                                           partials : []}).toMaster().start();
 
 
-const pulseOsc = new Tone.PWMOscillator({ frequency : pulseSlider.value,
-                                          volume: pulseVol.value,
+const pulseOsc = new Tone.PWMOscillator({ frequency : 0,
+                                          volume: -64,
                                           detune : 0,
                                           phase  : 0,
-                                          modulationFrequency : 0.4}).toMaster().start();
+                                          modulationFrequency : 0}).toMaster().start();
 
 // ***Event Listeners***
   // Frequency Sliders
@@ -74,3 +75,8 @@ sawtoothVol.addEventListener('input', () => {
 pulseVol.addEventListener('input', () => {
   pulseOsc.volume.value = pulseVol.value;
   console.log("Pulse volume: " + pulseOsc.volume.value); });
+
+  // PWM
+pwmSlider.addEventListener('input', () => {
+  pulseOsc.modulationFrequency.value = pwmSlider.value;
+  console.log("PWM Duty Cycle: " + pulseOsc.modulationFrequency.value); });
