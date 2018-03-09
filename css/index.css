@@ -10,7 +10,7 @@
     transition: opacity .2s;
 }
 
-.sine-vol-slider, .triangle-vol-slider, .sawtooth-vol-slider, .pulse-vol-slider {
+.sine-vol-slider, .triangle-vol-slider, .sawtooth-vol-slider, .pulse-vol-slider, .pwm-slider {
   -webkit-appearance: slider-vertical;  /* Override default CSS styles */
     appearance: slider-vertical;
     width: 25px; /* Full-width */
