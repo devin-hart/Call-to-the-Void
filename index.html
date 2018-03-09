@@ -1,39 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Synthesizer</title>
-    <link rel="stylesheet" type ="text/css" href="css/index.css">
-  </head>
-  <body>
 
-    <h1>.drone</h1>
+<head>
+  <meta charset="utf-8">
+  <title>Synthesizer</title>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
 
-  <div class="wave-container">
+<body>
 
-    Sine Oscillator
-    <input type="range" min="16" max="370" value="16" id="sine-knob" class="input-knob">
-    <input type="range" min="-64" max="0" value="-64" id="sine-vol-knob" class="input-knob">
+  <h1>.drone</h1>
 
-    Triangle Oscillator
-    <input type="range" min="16" max="370" value="16" id="triangle-knob" class="input-knob">
-    <input type="range" min="-64" max="0" value="-64" id="triangle-vol-knob" class="input-knob">
+  <div class="drone-container">
 
-    Sawtooth Oscillator
-    <input type="range" min="16" max="370" value="16" id="sawtooth-knob" class="input-knob">
-    <input type="range" min="-64" max="0" value="-64" id="sawtooth-vol-knob" class="input-knob">
+  Sine Oscillator/Volume
+    <div id="sine-container">
+      <input type="range" min="16" max="370" value="16" id="sine-knob" class="input-knob">
+      <input type="range" min="-64" max="0" value="-64" id="sine-vol-knob" class="input-knob">
+    </div>
 
-    Pulse Oscillator
-    <input type="range" min="16" max="370" value="16" id="pulse-knob" class="input-knob">
-    <input type="range" min="-64" max="0" value="-64" id="pulse-vol-knob" class="input-knob">
+  Triangle Oscillator/Volume
+    <div id="triangle-container">
+      <input type="range" min="16" max="370" value="16" id="triangle-knob" class="input-knob">
+      <input type="range" min="-64" max="0" value="-64" id="triangle-vol-knob" class="input-knob">
+    </div>
 
-    PWM
-    <input type="range" min="0" max="500" value="0" id="pwm-knob" class="input-knob">
+  Sawtooth Oscillator/Volume
+    <div id="sawtooth-container">
+      <input type="range" min="16" max="370" value="16" id="sawtooth-knob" class="input-knob">
+      <input type="range" min="-64" max="0" value="-64" id="sawtooth-vol-knob" class="input-knob">
+    </div>
+
+  Pulse Oscillator/Volume
+    <div id="pulse-container">
+      <input type="range" min="16" max="370" value="16" id="pulse-knob" class="input-knob">
+      <input type="range" min="-64" max="0" value="-64" id="pulse-vol-knob" class="input-knob">
+
+      PWM
+      <span id="pwm-container">
+        <input type="range" min="0" max="500" value="0" id="pwm-knob" class="input-knob">
+      </span>
+    </div>
+
+
+
   </div>
 
-    <script src="/node_modules/tone/build/Tone.min.js" charset="utf-8"></script>
-    <script src="javascript/input-knobs.js" charset="utf-8"></script>
-    <script src="javascript/index.js" charset="utf-8"></script>
+  <script src="/node_modules/tone/build/Tone.min.js" charset="utf-8"></script>
+  <script src="javascript/input-knobs.js" charset="utf-8"></script>
+  <script src="javascript/index.js" charset="utf-8"></script>
 
-  </body>
+</body>
+
 </html>
