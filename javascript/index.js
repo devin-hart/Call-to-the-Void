@@ -1,16 +1,16 @@
 // ***Query Selectors***
-const sineSlider = document.querySelector('.sine-slider');
-const sineVol = document.querySelector('.sine-vol-slider');
+const sineKnob = document.querySelector('#sine-knob');
+const sineVolKnob = document.querySelector('#sine-vol-knob');
 
-const triangleSlider = document.querySelector('.triangle-slider');
-const triangleVol = document.querySelector('.triangle-vol-slider');
+const triangleKnob = document.querySelector('#triangle-knob');
+const triangleVolKnob = document.querySelector('#triangle-vol-knob');
 
-const sawtoothSlider = document.querySelector('.sawtooth-slider');
-const sawtoothVol = document.querySelector('.sawtooth-vol-slider');
+const sawtoothKnob = document.querySelector('#sawtooth-knob');
+const sawtoothVolKnob = document.querySelector('#sawtooth-vol-knob');
 
-const pulseSlider = document.querySelector('.pulse-slider');
-const pulseVol = document.querySelector('.pulse-vol-slider');
-const pwmSlider = document.querySelector('.pwm-slider')
+const pulseKnob = document.querySelector('#pulse-knob');
+const pulseVolKnob = document.querySelector('#pulse-vol-knob');
+const pwmKnob = document.querySelector('#pwm-knob')
 
 // ***Oscillators***
 const sineOsc = new Tone.Oscillator({ type : "sine",
@@ -22,7 +22,7 @@ const sineOsc = new Tone.Oscillator({ type : "sine",
 
 const triangleOsc = new Tone.Oscillator({ type : "triangle",
                                           frequency : 0,
-                                          volume: triangleVol.value,
+                                          volume: 0,
                                           detune : 0,
                                           phase : 0,
                                           partials : []}).toMaster().start();
@@ -42,41 +42,41 @@ const pulseOsc = new Tone.PWMOscillator({ frequency : 0,
                                           modulationFrequency : 0}).toMaster().start();
 
 // ***Event Listeners***
-  // Frequency Sliders
-sineSlider.addEventListener('input', () => {
-  sineOsc.frequency.value = sineSlider.value;
+  // Frequency Knobs
+sineKnob.addEventListener('input', () => {
+  sineOsc.frequency.value = sineKnob.value;
   console.log("Sine frequency: " + sineOsc.frequency.value); });
 
-triangleSlider.addEventListener('input', () => {
-  triangleOsc.frequency.value = triangleSlider.value;
+triangleKnob.addEventListener('input', () => {
+  triangleOsc.frequency.value = triangleKnob.value;
   console.log("Triangle frequency: " + triangleOsc.frequency.value); });
 
-sawtoothSlider.addEventListener('input', () => {
-  sawtoothOsc.frequency.value = sawtoothSlider.value;
+sawtoothKnob.addEventListener('input', () => {
+  sawtoothOsc.frequency.value = sawtoothKnob.value;
   console.log("Sawtooth frequency: " + sawtoothOsc.frequency.value); });
 
-pulseSlider.addEventListener('input', () => {
-  pulseOsc.frequency.value = pulseSlider.value;
+pulseKnob.addEventListener('input', () => {
+  pulseOsc.frequency.value = pulseKnob.value;
   console.log("Pulse frequency: " + pulseOsc.frequency.value); });
 
-  // Volume Sliders
-sineVol.addEventListener('input', () => {
-  sineOsc.volume.value = sineVol.value;
+  // Volume Knobs
+sineVolKnob.addEventListener('input', () => {
+  sineOsc.volume.value = sineVolKnob.value;
   console.log("Sine volume: " + sineOsc.volume.value); });
 
-triangleVol.addEventListener('input', () => {
-  triangleOsc.volume.value = triangleVol.value;
+triangleVolKnob.addEventListener('input', () => {
+  triangleOsc.volume.value = triangleVolKnob.value;
   console.log("Triangle volume: " + triangleOsc.volume.value); });
 
-sawtoothVol.addEventListener('input', () => {
-  sawtoothOsc.volume.value = sawtoothVol.value;
+sawtoothVolKnob.addEventListener('input', () => {
+  sawtoothOsc.volume.value = sawtoothVolKnob.value;
   console.log("Sawtooth volume: " + sawtoothOsc.volume.value); });
 
-pulseVol.addEventListener('input', () => {
-  pulseOsc.volume.value = pulseVol.value;
+pulseVolKnob.addEventListener('input', () => {
+  pulseOsc.volume.value = pulseVolKnob.value;
   console.log("Pulse volume: " + pulseOsc.volume.value); });
 
   // PWM
-pwmSlider.addEventListener('input', () => {
-  pulseOsc.modulationFrequency.value = pwmSlider.value;
+pwmKnob.addEventListener('input', () => {
+  pulseOsc.modulationFrequency.value = pwmKnob.value;
   console.log("PWM Duty Cycle: " + pulseOsc.modulationFrequency.value); });
