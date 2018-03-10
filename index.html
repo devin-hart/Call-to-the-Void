@@ -11,15 +11,20 @@
 
 <body>
 
-  <h1>.drone</h1>
-
   <div id="drone-container">
+
+    <h1 id="drone-title">call to <br>
+      the void</h1>
 
 <!-- Sine -->
 
       <div id="sine-osc-container">
         <h5 id="osc-title">sine osc</h5>
         <input type="range" min="16" max="370" value="16" id="sine-knob" class="input-knob">
+      </div>
+
+      <div id="sine-light-container">
+        <div id="sine-light"></div>
       </div>
 
       <div id="sine-vol-container">
@@ -34,6 +39,10 @@
         <input type="range" min="16" max="370" value="16" id="triangle-knob" class="input-knob">
       </div>
 
+      <div id="triangle-light-container">
+        <div id="triangle-light"></div>
+      </div>
+
       <div id="triangle-vol-container">
         <h5 id="vol-title">triangle vol</h5>
         <input type="range" min="-64" max="0" value="-64" id="triangle-vol-knob" class="input-knob">
@@ -44,6 +53,10 @@
       <div id="sawtooth-osc-container">
         <h5 id="osc-title">sawtooth osc</h5>
         <input type="range" min="16" max="370" value="16" id="sawtooth-knob" class="input-knob">
+      </div>
+
+      <div id="sawtooth-light-container">
+        <div id="sawtooth-light"></div>
       </div>
 
       <div id="sawtooth-vol-container">
@@ -58,6 +71,10 @@
         <input type="range" min="16" max="370" value="16" id="pulse-knob" class="input-knob">
       </div>
 
+      <div id="pulse-light-container">
+        <div id="pulse-light"></div>
+      </div>
+      
       <div id="pwm-container">
         <h5 id="pwm-title">PWM</h5>
         <input type="range" min="0" max="100" value="0" id="pwm-knob" class="input-knob">
@@ -67,6 +84,11 @@
         <h5 id="vol-title">pulse vol</h5>
         <input type="range" min="-64" max="0" value="-64" id="pulse-vol-knob" class="input-knob">
       </div>
+
+
+
+
+
 
   </div>
 

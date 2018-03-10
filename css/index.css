@@ -2,6 +2,29 @@
   font-family: 'Share Tech Mono', monospace;
 }
 
+#drone-title {
+  grid-column: 2/3;
+  grid-row: 1;
+  text-align: center;
+  text-shadow: 0px 3px 0px #26466D,
+                 0px 14px 10px rgba(0,0,0,0.15),
+                 0px 24px 2px rgba(0,0,0,0.1),
+                 0px 34px 30px rgba(0,0,0,0.1);
+  font-size: 30px;
+}
+
+#osc-title {
+  text-align: left;
+}
+
+#vol-title {
+  text-align: right;
+}
+
+#pwm-title {
+  text-align: center;
+}
+
 #drone-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -11,6 +34,8 @@
   height: 600px;
   background-color: #0D4F8B;
   color: #4F94CD;
+  margin: 0 auto;
+  padding: 5px;
 }
 
 #sine-osc-container, #triangle-osc-container,
@@ -19,7 +44,7 @@
 }
 
 #pwm-container {
-  grid-column: 2;
+  grid-column: 2/3;
   grid-row: 4;
   text-align: center;
 }
@@ -46,14 +71,58 @@
   grid-row: 4;
 }
 
-#osc-title {
-  text-align: left;
+#sine-light-container {
+  position: relative;
+  grid-row: 1;
+  grid-column: 2;
+  margin: 0 auto;
 }
 
-#vol-title {
-  text-align: right;
+#triangle-light-container {
+  position: relative;
+  grid-row: 2;
+  grid-column: 2;
+  margin: 0 auto;
 }
 
-#pwm-title {
+#sawtooth-light-container {
+  position: relative;
+  grid-row: 3;
+  grid-column: 2;
+  margin: 0 auto;
+}
+
+#pulse-light-container {
+  position: relative;
+  grid-row: 4;
+  grid-column: 2;
+  margin: 0 auto;
+}
+
+#sine-light, #triangle-light, #sawtooth-light, #pulse-light {
+  height: 16px;
+  width: 16px;
+  background-color: black;
+  border: 2px dotted black;
   text-align: center;
+  grid-column: 2/3;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+}
+
+#sine-light {
+  grid-row: 1;
+}
+
+#triangle-light {
+  grid-row: 2;
+}
+
+#sawtooth-light {
+  grid-row: 3;
+}
+
+#pulse-light {
+  grid-row: 4;
 }
