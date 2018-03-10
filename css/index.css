@@ -102,7 +102,6 @@
 #sine-light, #triangle-light, #sawtooth-light, #pulse-light {
   height: 16px;
   width: 16px;
-  background-color: black;
   border: 2px dotted black;
   text-align: center;
   grid-column: 2/3;
@@ -113,16 +112,20 @@
 
 #sine-light {
   grid-row: 1;
+  background-color: black;
 }
 
 #triangle-light {
   grid-row: 2;
+  background-color: black;
 }
 
 #sawtooth-light {
   grid-row: 3;
+  background-color: black;
 }
 
 #pulse-light {
   grid-row: 4;
+  background-color: black;
 }

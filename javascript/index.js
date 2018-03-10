@@ -16,6 +16,12 @@ const pulseKnob = document.querySelector('#pulse-knob');
 const pulseVolKnob = document.querySelector('#pulse-vol-knob');
 const pwmKnob = document.querySelector('#pwm-knob');
 
+// Lights
+const sineLight = document.querySelector('#sine-light');
+const triangleLight = document.querySelector('#triangle-light');
+const sawtoothLight = document.querySelector('#sawtooth-light');
+const pulseLight = document.querySelector('#pulse-light');
+
 // Oscillators
 const sineOsc = new Tone.Oscillator({ type : "sine",
                                       frequency : 0,
@@ -75,3 +81,19 @@ pulseVolKnob.addEventListener('input', () => {
 pwmKnob.addEventListener('input', () => {
   pulseOsc.modulationFrequency.value = pwmKnob.value;
   console.log("PWM Duty Cycle: " + pulseOsc.modulationFrequency.value); });
+
+function lightOn() {
+  console.log(sineVolKnob.value);
+  if (sineKnob.value >= -50) {
+    sineLight.style.backgroundColor = "red";
+    return console.log('this should work');
+  } else {
+    sineLight.style.backgroundColor = "black";
+    console.log('not working')
+  }
+};
+
+lightOn();
+// lightOn(triangleOsc.volume.value, triangleLight);
+// lightOn(sawtoothOsc.volume.value, sawtoothLight);
+// lightOn(pulseOsc.volume.value, pulseLight);
