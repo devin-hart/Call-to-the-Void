@@ -16,7 +16,6 @@ const pulseKnob = document.querySelector('#pulse-knob');
 const pulseVolKnob = document.querySelector('#pulse-vol-knob');
 const pwmKnob = document.querySelector('#pwm-knob');
 
-
 // Oscillators
 const sineOsc = new Tone.Oscillator({ type : "sine",
                                       frequency : 0,
@@ -36,7 +35,6 @@ const pulseOsc = new Tone.PWMOscillator({ frequency : 0,
                                           modulationFrequency : 0}).toMaster().start();
 
 
-// LFO
 
 // ***Event Listeners***
 // Frequency Knobs

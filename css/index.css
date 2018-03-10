@@ -1,23 +1,59 @@
-.sine-slider, .pulse-slider, .triangle-slider, .sawtooth-slider{
-  -webkit-appearance: slider-vertical;  /* Override default CSS styles */
-    appearance: slider-vertical;
-    width: 25px; /* Full-width */
-    height: 25%; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+* {
+  font-family: 'Share Tech Mono', monospace;
 }
 
-.sine-vol-slider, .triangle-vol-slider, .sawtooth-vol-slider, .pulse-vol-slider, .pwm-slider {
-  -webkit-appearance: slider-vertical;  /* Override default CSS styles */
-    appearance: slider-vertical;
-    width: 25px; /* Full-width */
-    height: 25%; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
+#drone-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  width: 400px;
+  height: 600px;
+  background-color: #0D4F8B;
+  color: #4F94CD;
+}
+
+#sine-osc-container, #triangle-osc-container,
+#sawtooth-osc-container, #pulse-osc-container {
+  grid-column: 1/3;
+}
+
+#pwm-container {
+  grid-column: 2;
+  grid-row: 4;
+  text-align: center;
+}
+
+#sine-vol-container, #triangle-vol-container,
+#sawtooth-vol-container, #pulse-vol-container {
+  grid-column: 3/3;
+  text-align: right;
+}
+
+#sine-osc-container, #sine-vol-container {
+  grid-row: 1;
+}
+
+#triangle-osc-container, #triangle-vol-container {
+  grid-row: 2;
+}
+
+#sawtooth-osc-container, #sawtooth-vol-container {
+  grid-row: 3;
+}
+
+#pulse-osc-container, #pulse-vol-container {
+  grid-row: 4;
+}
+
+#osc-title {
+  text-align: left;
+}
+
+#vol-title {
+  text-align: right;
+}
+
+#pwm-title {
+  text-align: center;
 }
