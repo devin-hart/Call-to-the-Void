@@ -60,40 +60,48 @@ pulseKnob.addEventListener('input', () => {
   pulseOsc.frequency.value = pulseKnob.value;
   console.log("Pulse frequency: " + pulseOsc.frequency.value); });
 
-// Volume Knobs
-sineVolKnob.addEventListener('input', () => {
-  sineOsc.volume.value = sineVolKnob.value;
-  console.log("Sine volume: " + sineOsc.volume.value); });
+  // Volume Knobs
+  sineVolKnob.addEventListener('input', () => {
+    sineOsc.volume.value = sineVolKnob.value;
+    console.log("Sine volume: " + Math.ceil(sineOsc.volume.value));
+    lightOn(sineVolKnob.value, sineLight);
+  });
 
-triangleVolKnob.addEventListener('input', () => {
-  triangleOsc.volume.value = triangleVolKnob.value;
-  console.log("Triangle volume: " + triangleOsc.volume.value); });
+  triangleVolKnob.addEventListener('input', () => {
+    triangleOsc.volume.value = triangleVolKnob.value;
+    console.log("Triangle volume: " + triangleOsc.volume.value);
+    lightOn(triangleVolKnob.value, triangleLight);
+  });
 
-sawtoothVolKnob.addEventListener('input', () => {
-  sawtoothOsc.volume.value = sawtoothVolKnob.value;
-  console.log("Sawtooth volume: " + sawtoothOsc.volume.value); });
+  sawtoothVolKnob.addEventListener('input', () => {
+    sawtoothOsc.volume.value = sawtoothVolKnob.value;
+    console.log("Sawtooth volume: " + sawtoothOsc.volume.value);
+    lightOn(sawtoothVolKnob.value, sawtoothLight);
+  });
 
-pulseVolKnob.addEventListener('input', () => {
-  pulseOsc.volume.value = pulseVolKnob.value;
-  console.log("Pulse volume: " + pulseOsc.volume.value); });
+  pulseVolKnob.addEventListener('input', () => {
+    pulseOsc.volume.value = pulseVolKnob.value;
+    console.log("Pulse volume: " + pulseOsc.volume.value);
+    lightOn(pulseVolKnob.value, pulseLight);
+  });
+
+  // PWM
+  pwmKnob.addEventListener('input', () => {
+    pulseOsc.modulationFrequency.value = pwmKnob.value;
+    console.log("PWM Duty Cycle: " + pulseOsc.modulationFrequency.value); });
+
+  function lightOn(knobVal, knobElement) {
+    console.log(knobVal);
+    if (Math.ceil(knobVal) > -64) {
+      knobElement.style.backgroundColor = "red";
+      return console.log('this should work');
+    } else {
+      knobElement.style.backgroundColor = "black";
+      console.log('not working')
+    }
+  };
 
 // PWM
 pwmKnob.addEventListener('input', () => {
   pulseOsc.modulationFrequency.value = pwmKnob.value;
   console.log("PWM Duty Cycle: " + pulseOsc.modulationFrequency.value); });
-
-function lightOn() {
-  console.log(sineVolKnob.value);
-  if (sineKnob.value >= -50) {
-    sineLight.style.backgroundColor = "red";
-    return console.log('this should work');
-  } else {
-    sineLight.style.backgroundColor = "black";
-    console.log('not working')
-  }
-};
-
-lightOn();
-// lightOn(triangleOsc.volume.value, triangleLight);
-// lightOn(sawtoothOsc.volume.value, sawtoothLight);
-// lightOn(pulseOsc.volume.value, pulseLight);
