@@ -129,3 +129,20 @@
   grid-row: 4;
   background-color: black;
 }
+
+#sine-osc-value, #triangle-osc-value,
+#sawtooth-osc-value, #pulse-osc-value,
+#sine-vol-value, #triangle-vol-value,
+#sawtooth-vol-value, #pulse-vol-value {
+  height: 15px;
+  width: 15px;
+  border: 1px solid #4F94CD;
+  background-color: #FFFFE0;
+  display: inline-block;
+  text-align: center;
+  color: black;
+}
+
+#sine-vol-value, #triangle-vol-value,
+#sawtooth-vol-value, #pulse-vol-value {
+}
