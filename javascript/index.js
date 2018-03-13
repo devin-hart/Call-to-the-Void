@@ -108,7 +108,7 @@ pulseVolKnob.addEventListener('input', () => {
 // PWM
 pwmKnob.addEventListener('input', () => {
   pulseOsc.modulationFrequency.value = pwmKnob.value;
-  console.log("PWM Duty Cycle: " + pulseOsc.modulationFrequency.value); });
+  console.log("PWM: " + pulseOsc.modulationFrequency.value); });
 
 function lightOn(knobVal, knobElement) {
   if (Math.ceil(knobVal) > -64) {
