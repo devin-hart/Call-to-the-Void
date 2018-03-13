@@ -111,7 +111,6 @@ pwmKnob.addEventListener('input', () => {
   console.log("PWM Duty Cycle: " + pulseOsc.modulationFrequency.value); });
 
 function lightOn(knobVal, knobElement) {
-  console.log(knobVal);
   if (Math.ceil(knobVal) > -64) {
     knobElement.style.backgroundColor = "red";
   } else {
